@@ -60,7 +60,7 @@ Score each memory: `relevance = recency × frequency × utility`
 ## Bi-Temporal Tracking
 
 Track two timelines for each fact:
-- **Valid time**: When the fact was true in the real world
+- **Valid time**: When the fact was true in the real-world
 - **Transaction time**: When the agent learned/recalled the fact
 
 Example: "Server migrated to AWS" — valid since Jan 2025, recorded Feb 2025.

@@ -3,19 +3,20 @@
 ## Tools
 
 - **Ruff** — Linter + formatter (replaces Flake8, Black, isort)
-- **MyPy** — Static type checker
+- **Pyright** — Static type checker (fast, strict, VS Code compatible)
 
 ## Commands
 
 ```bash
 # After editing
-ruff check $FILE && ruff format --check $FILE && mypy $FILE
+ruff check $FILE && ruff format --check $FILE && pyright $FILE
 
 # Before committing
-ruff check --fix . && ruff format . && mypy .
+ruff check --fix . && ruff format . && pyright .
 
 # First time
-pip install ruff mypy
+uv tool install ruff
+uv tool install pyright
 ```
 
 ## pyproject.toml — Ruff
@@ -44,25 +45,16 @@ quote-style = "double"
 indent-style = "space"
 ```
 
-## pyproject.toml — MyPy
+## pyrightconfig.json
 
-```toml
-[tool.mypy]
-python_version = "3.9"
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-check_untyped_defs = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_no_return = true
-warn_return_any = true
-warn_unreachable = true
-strict_equality = true
-incremental = true
-
-[[tool.mypy.overrides]]
-module = "tests.*"
-disallow_untyped_defs = false
+```json
+{
+  "pythonVersion": "3.9",
+  "typeCheckingMode": "strict",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "exclude": ["**/node_modules", "**/__pycache__", ".venv", "migrations"]
+}
 ```
 
 ## Inline Suppression
