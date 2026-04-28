@@ -5,6 +5,8 @@ paths:
   - "**/*.py"
   - "**/pyproject.toml"
   - "**/requirements*.txt"
+compatibility: "Python 3.9+"
+allowed-tools: Bash(python *) Bash(uv *) Bash(uvx ruff *) Bash(uvx pyright *) Bash(uvx pytest *)
 ---
 
 # Python Skill
@@ -18,7 +20,7 @@ Covers Python development standards: clean code, design patterns, testing, stati
 | `clean-code.md` | PEP 8, naming, type hints, docstrings, anti-patterns |
 | `patterns.md` | Strategy, Observer, Decorator, Context Manager, dataclasses |
 | `testing.md` | Pytest, fixtures, parametrize, mocking, coverage config |
-| `static-analysis.md` | Ruff + MyPy config, pyproject.toml examples |
+| `static-analysis.md` | Ruff + Pyright config, pyproject.toml examples |
 | `parallel.md` | Threading, multiprocessing, asyncio, race conditions |
 | `ipc.md` | HTTP/REST, WebSockets, multiprocessing queues, Redis |
 
@@ -38,6 +40,6 @@ Covers Python development standards: clean code, design patterns, testing, stati
 
 - **Package manager**: uv (not pip)
 - **Linter/formatter**: Ruff
-- **Type checker**: MyPy
+- **Type checker**: Pyright
 - **Testing**: pytest + pytest-cov
 - **Mutation testing**: mutmut

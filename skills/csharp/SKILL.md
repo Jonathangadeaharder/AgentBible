@@ -5,6 +5,8 @@ paths:
   - "**/*.cs"
   - "**/*.csproj"
   - "**/*.sln"
+compatibility: ".NET 8+"
+allowed-tools: Bash(dotnet *)
 ---
 
 # C# Skill

@@ -29,7 +29,11 @@ Cross-language principles loaded every session:
 | `commit.md` | Conventional commits, atomic changes, WHY not WHAT |
 | `architecture.md` | ADR process, design principles, documentation standards |
 | `ipc.md` | IPC mechanism selection (REST, gRPC, queues, shared memory) |
-| `behaviour.md` | Agent behavior, planning, error handling, communication |
+| `mcp.md` | Model Context Protocol integration, tool design, A2A communication |
+| `orchestration.md` | Workflow patterns (Sequential, Concurrent, Handoff, Magentic) |
+| `security.md` | Security guardrails, RBAC, sandboxing, audit trails, PII redaction |
+| `memory.md` | Tiered memory architecture, decay, extraction, bi-temporal tracking |
+| `behaviour.md` | Agent behavior, planning, Reflexion self-correction, circuit breakers |
 
 ### Skills (On Demand)
 
@@ -54,6 +58,7 @@ Multi-step procedures invoked with `/command`:
 | `/adr-validator` | Validate architecture decision records |
 | `/tech-debt-triage` | Assess and prioritize technical debt |
 | `/static-analysis` | Run language-appropriate static analysis tools |
+| `/evaluate` | Analyze execution trajectories, detect failure patterns, self-correct |
 
 ## Quick Start
 
