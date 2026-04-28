@@ -1,0 +1,128 @@
+# AgentBible
+
+Comprehensive development guidelines for AI coding agents. Works with Claude Code, GitHub Copilot, Windsurf, Cursor, and any tool supporting the [AGENTS.md](https://agents.md) standard.
+
+## What's Inside
+
+```
+AgentBible/
+├── AGENTS.md           # Universal agent instructions (always loaded)
+├── rules/              # Always-on coding standards
+├── skills/             # Language-specific knowledge (loaded on demand)
+│   ├── python/
+│   ├── csharp/
+│   ├── cpp/
+│   └── react/
+├── workflows/          # Manual procedures (/command)
+└── scripts/            # Deployment tools
+```
+
+### Rules (Always On)
+
+Cross-language principles loaded every session:
+
+| Rule | What it covers |
+|------|---------------|
+| `clean-code.md` | Naming, functions, comments, error handling, boundaries |
+| `patterns.md` | Design patterns decision framework (when to use, when not to) |
+| `testing.md` | Test pyramid, coverage, naming, mocking, anti-patterns |
+| `commit.md` | Conventional commits, atomic changes, WHY not WHAT |
+| `architecture.md` | ADR process, design principles, documentation standards |
+| `ipc.md` | IPC mechanism selection (REST, gRPC, queues, shared memory) |
+| `behaviour.md` | Agent behavior, planning, error handling, communication |
+
+### Skills (On Demand)
+
+Language-specific knowledge that loads when you work with matching files:
+
+| Skill | Triggers on | Covers |
+|-------|------------|--------|
+| `python/` | `**/*.py` | PEP 8, pytest, Ruff, async, patterns, IPC |
+| `csharp/` | `**/*.cs` | Naming, xUnit, EF Core, ASP.NET, patterns |
+| `cpp/` | `**/*.cpp`, `**/*.hpp` | Naming, Google Test, CMake, RAII, patterns |
+| `react/` | `**/*.jsx`, `**/*.tsx` | Hooks, Jest, React Query, patterns |
+
+### Workflows (Manual)
+
+Multi-step procedures invoked with `/command`:
+
+| Command | What it does |
+|---------|-------------|
+| `/research` | Structured research with plan confirmation and citations |
+| `/comment-guard` | Verify comment truthfulness (WHY not WHAT) |
+| `/doc-drift-guard` | Check docs match actual code and architecture |
+| `/adr-validator` | Validate architecture decision records |
+| `/tech-debt-triage` | Assess and prioritize technical debt |
+| `/static-analysis` | Run language-appropriate static analysis tools |
+
+## Quick Start
+
+### Option 1: Copy AGENTS.md
+
+Copy `AGENTS.md` to your project root. Works with any agent that reads AGENTS.md files.
+
+### Option 2: Deploy to Specific Tools
+
+```bash
+# Deploy to GitHub Copilot
+python scripts/deploy_to_copilot.py
+
+# Deploy to Windsurf
+python scripts/deploy_to_windsurf.py
+
+# Deploy to Claude Code
+python scripts/deploy_to_claude.py
+```
+
+### Option 3: Use as Skills (Claude Code)
+
+```bash
+# Symlink into your project
+ln -s /path/to/AgentBible/skills .claude/skills/agentbible
+
+# Or copy specific skills
+cp -r AgentBible/skills/python .claude/skills/python
+```
+
+## How It Works
+
+| Category | When loaded | Purpose |
+|----------|-------------|---------|
+| **AGENTS.md** | Always | Universal instructions for any agent |
+| **rules/** | Always (every session) | Cross-language coding standards |
+| **skills/** | On demand (file match or manual) | Language-specific knowledge |
+| **workflows/** | Manual only (`/command`) | Multi-step procedures with side effects |
+
+## Supported Tools
+
+| Tool | How it uses AgentBible |
+|------|----------------------|
+| **Claude Code** | AGENTS.md + rules/ as CLAUDE.md, skills/ as .claude/skills/, workflows/ as custom commands |
+| **GitHub Copilot** | AGENTS.md as copilot-instructions.md, rules/ as .instructions.md |
+| **Windsurf** | AGENTS.md + rules/ as .windsurf/rules/, skills/ as memories |
+| **Cursor** | AGENTS.md as .cursor/rules, rules/ as .cursor/rules/*.md |
+| **Any agent** | AGENTS.md in project root |
+
+## Adding Content
+
+### New Language
+
+1. Create `skills/{language}/SKILL.md` with frontmatter
+2. Add topic files: clean-code.md, patterns.md, testing.md, static-analysis.md, parallel.md, ipc.md
+3. Update deployment scripts if needed
+
+### New Rule
+
+1. Create `rules/{name}.md` (under 200 lines)
+2. Reference it in AGENTS.md
+
+### New Workflow
+
+1. Create `workflows/{name}.md` with `disable-model-invocation: true` frontmatter
+2. Reference it in AGENTS.md
+
+See `TEMPLATE.md` for templates.
+
+## License
+
+Internal use — Development guidelines for AI agents.
