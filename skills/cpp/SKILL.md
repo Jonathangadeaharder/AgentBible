@@ -8,6 +8,8 @@ paths:
   - "**/*.cc"
   - "**/*.cxx"
   - "**/CMakeLists.txt"
+compatibility: "C++17 or later"
+allowed-tools: Bash(cmake *) Bash(make *) Bash(clang-format *) Bash(cppcheck *)
 ---
 
 # C++ Skill

@@ -67,7 +67,11 @@ These rules apply to ALL code, all languages, all the time:
 - `rules/commit.md` — Commit message standards (WHY not WHAT)
 - `rules/architecture.md` — ADR process and principles
 - `rules/ipc.md` — IPC mechanism selection
-- `rules/behaviour.md` — Agent behavior and planning
+- `rules/mcp.md` — Model Context Protocol integration
+- `rules/orchestration.md` — Workflow orchestration patterns
+- `rules/security.md` — Security guardrails, RBAC, sandboxing, audit trails
+- `rules/memory.md` — Tiered memory architecture, decay, extraction
+- `rules/behaviour.md` — Agent behavior, planning, self-correction
 
 ## Skills (On Demand)
 
@@ -88,6 +92,7 @@ Invoke these with `/command-name`:
 - `/adr-validator` — Validate architecture decisions
 - `/tech-debt-triage` — Assess and prioritize technical debt
 - `/static-analysis` — Run language-appropriate static analysis tools
+- `/evaluate` — Analyze execution trajectories, detect failure patterns, self-correct
 
 ## Error Handling
 

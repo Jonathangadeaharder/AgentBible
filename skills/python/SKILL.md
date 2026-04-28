@@ -5,6 +5,8 @@ paths:
   - "**/*.py"
   - "**/pyproject.toml"
   - "**/requirements*.txt"
+compatibility: "Python 3.9+"
+allowed-tools: Bash(python *) Bash(uv *) Bash(uvx ruff *) Bash(uvx pyright *) Bash(uvx pytest *)
 ---
 
 # Python Skill

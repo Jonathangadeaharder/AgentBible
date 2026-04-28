@@ -7,6 +7,8 @@ paths:
   - "**/*.ts"
   - "**/*.js"
   - "**/package.json"
+compatibility: "React 18+, TypeScript 5+"
+allowed-tools: Bash(pnpm *) Bash(npx *) Bash(tsc *) Bash(vitest *) Bash(playwright *)
 ---
 
 # React Skill
