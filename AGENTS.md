@@ -100,6 +100,10 @@ Invoke these with `/command-name`:
 - Analyze before retrying
 - Document learnings in auto memory if applicable
 
+## Tool & Executable Management
+
+- **CRITICAL**: Whenever you modify the source code of a CLI tool, application, or any executable (e.g., Python scripts, `uv tool` installations, etc.), you MUST re-install or update the executable (e.g., using `pip install -e .` or `uv tool install --editable .`) so the changes are actually reflected when the tool is run. Never forget this step!
+
 ## Communication Style
 
 - Be concise and direct
