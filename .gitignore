@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Build
+dist/
+build/
+
+# Node
+node_modules/
+
+# Duplicate/copy files
+* 2.md
+* 2 copy*
+
+# Project-specific
+.structurelint.yml
