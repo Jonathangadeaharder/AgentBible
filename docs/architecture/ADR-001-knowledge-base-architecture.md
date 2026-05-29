@@ -1,6 +1,21 @@
-# ADR-001: Markdown Knowledge Base Architecture
-
-**Status:** Accepted
+---
+id: ADR-001
+kind: adr
+title: Markdown Knowledge Base Architecture
+status: accepted
+authors: [Jonathan Gadea Harder]
+reviewers: [Jonathan Gadea Harder]
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: b6ddf30ff70c07a3507155f1079979181d241607c3a2ba14983b457a445916c6
+---
 
 **Context:** AgentBible needs to serve as a universal development guidelines repository for AI coding agents across multiple platforms (Claude Code, Copilot, Windsurf, Cursor). The content must be platform-agnostic while allowing platform-specific deployment.
 

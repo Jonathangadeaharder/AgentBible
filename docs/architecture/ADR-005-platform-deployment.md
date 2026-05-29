@@ -1,6 +1,21 @@
-# ADR-005: Multi-Platform Deployment Strategy
-
-**Status:** Accepted
+---
+id: ADR-005
+kind: adr
+title: Multi-Platform Deployment Strategy
+status: accepted
+authors: [Jonathan Gadea Harder]
+reviewers: [Jonathan Gadea Harder]
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: a57d579b40e0fd4297341afd98ca06140130fee656f57e934c2d8ceaa7cda5d2
+---
 
 **Context:** AgentBible targets multiple AI coding platforms (Claude Code, GitHub Copilot, Windsurf, Cursor). Each platform has different configuration files, symlink conventions, and instruction loading mechanisms.
 
