@@ -1,4 +1,25 @@
-# AgentBible — Universal Agent Development Guidelines
+---
+id: SPEC-AGENT-BIBLE-
+kind: spec
+title: AgentBible — Universal Agent Development Guidelines
+status: draft
+authors: []
+reviewers: []
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: 3542c0f659b48e237cba049807739fcd1dadeca0d22a6cfb0ccafae8c8d803e8
+---
+
+---
+checksum: 6c7d13f113a031ff284e3480528b82c18578ab752b4fde0449dc3bab5fba0985
+---
 
 ## Overview
 
