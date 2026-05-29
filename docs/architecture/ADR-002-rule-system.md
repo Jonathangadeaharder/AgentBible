@@ -1,6 +1,21 @@
-# ADR-002: Rule System for Agent Instructions
-
-**Status:** Accepted
+---
+id: ADR-002
+kind: adr
+title: Rule System for Agent Instructions
+status: accepted
+authors: [Jonathan Gadea Harder]
+reviewers: [Jonathan Gadea Harder]
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: fbb683c31aa6d9c401914a30626e5f19fa5ac092efb37dd909933a58b17b36c6
+---
 
 **Context:** Agents need always-on coding standards that load every session. Rules must be cross-language, enforce consistent practices, and remain concise (under 200 lines each).
 

@@ -1,6 +1,21 @@
-# ADR-004: Workflow Orchestration System
-
-**Status:** Accepted
+---
+id: ADR-004
+kind: adr
+title: Workflow Orchestration System
+status: accepted
+authors: [Jonathan Gadea Harder]
+reviewers: [Jonathan Gadea Harder]
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: 37a3f70789d8189afd9e79788c025c8d6785cc29fd2691aa3d8dc83596b564ab
+---
 
 **Context:** Some procedures are multi-step, side-effect-bearing, and should not run automatically. Agents need manual commands for research, validation, triage, and evaluation workflows.
 

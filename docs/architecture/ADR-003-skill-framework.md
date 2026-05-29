@@ -1,6 +1,21 @@
-# ADR-003: Skill Framework for Language-Specific Knowledge
-
-**Status:** Accepted
+---
+id: ADR-003
+kind: adr
+title: Skill Framework for Language-Specific Knowledge
+status: accepted
+authors: [Jonathan Gadea Harder]
+reviewers: [Jonathan Gadea Harder]
+tags: []
+supersedes: []
+superseded_by: []
+depends_on: []
+blocks: []
+implements: []
+related: []
+external: []
+project: AgentBible
+checksum: c51a5a40780b6f3a77d12fff98b76338c1e8eccda7bc5a997c85d84cc92a387b
+---
 
 **Context:** Different programming languages have different conventions, testing frameworks, and toolchains. A single set of rules cannot cover language-specific detail. Skills must load on demand to avoid polluting the context for unrelated files.
 
