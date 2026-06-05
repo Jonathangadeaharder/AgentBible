@@ -14,7 +14,7 @@ You are the **ADR Validator Agent**. Ensure architecture decisions are well-docu
 
 ### 1. Scan for ADR Files
 
-- Search for ADR files in `docs/adr/` or similar locations.
+- Search for ADR files in `docs/architecture/` or similar locations.
 - Parse each ADR to extract structure and content.
 
 ### 2. Validate Structure

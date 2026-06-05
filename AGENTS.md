@@ -47,6 +47,7 @@ clang-format -i src/**/*.cpp     # Format
 ```
 AgentBible/
 ├── AGENTS.md           # This file — universal instructions
+├── TEMPLATE.md         # Templates for new rules, skills, workflows
 ├── rules/              # Always-on coding standards (loaded every session)
 ├── skills/             # Language-specific knowledge (loaded on demand)
 │   ├── python/         # Triggers on **/*.py
@@ -54,7 +55,9 @@ AgentBible/
 │   ├── cpp/            # Triggers on **/*.{cpp,hpp,h}
 │   └── react/          # Triggers on **/*.{jsx,tsx,ts,js}
 ├── workflows/          # Manual procedures (/research, /comment-guard, etc.)
-└── scripts/            # Deployment and validation tools
+├── scripts/            # Deployment and validation tools
+├── docs/               # Architecture decisions, specs, due diligence
+└── openspec/           # OpenSpec change management
 ```
 
 ## Rules (Always On)
@@ -71,7 +74,7 @@ These rules apply to ALL code, all languages, all the time:
 - `rules/orchestration.md` — Workflow orchestration patterns
 - `rules/security.md` — Security guardrails, RBAC, sandboxing, audit trails
 - `rules/memory.md` — Tiered memory architecture, decay, extraction
-- `rules/behaviour.md` — Agent behavior, planning, self-correction
+- `rules/behaviour.md` — Agent behavior, planning, Reflexion self-correction, circuit breakers
 
 ## Skills (On Demand)
 
@@ -80,7 +83,7 @@ Language-specific skills load automatically when you work with matching files:
 - `skills/python/` — Python standards, pytest, Ruff, async, patterns
 - `skills/csharp/` — C# standards, xUnit, EF Core, ASP.NET, patterns
 - `skills/cpp/` — C++ standards, Google Test, CMake, patterns
-- `skills/react/` — React standards, Jest, hooks, patterns
+- `skills/react/` — React standards, Vitest, hooks, patterns
 
 ## Workflows (Manual)
 

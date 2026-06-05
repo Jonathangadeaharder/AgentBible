@@ -2,18 +2,22 @@
 
 ## Tools
 
-- **ESLint** — Linter for JS/TS
-- **Prettier** — Formatter
+- **Biome** — Linter + formatter (preferred)
+- **ESLint** — Linter for JS/TS (legacy, if configured)
+- **Prettier** — Formatter (legacy, if configured)
 - **TypeScript** — Type checker
 
 ## Commands
 
 ```bash
-# After editing
-npx eslint $FILE --fix && npx prettier --write $FILE && npx tsc --noEmit
+# Preferred: Biome (lint + format in one tool)
+pnpm exec biome check --write $FILE
 
 # Before committing
-npx eslint src/ --fix && npx prettier --write src/ && npx tsc --noEmit
+pnpm exec biome check src/ && pnpm exec tsc --noEmit
+
+# Legacy: ESLint + Prettier (if project uses them)
+npx eslint $FILE --fix && npx prettier --write $FILE && npx tsc --noEmit
 ```
 
 ## .eslintrc.json

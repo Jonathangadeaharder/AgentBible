@@ -8,7 +8,7 @@ paths:
   - "**/*.js"
   - "**/package.json"
 compatibility: "React 18+, TypeScript 5+"
-allowed-tools: Bash(pnpm *) Bash(npx *) Bash(tsc *) Bash(vitest *) Bash(playwright *)
+allowed-tools: Bash(pnpm *) Bash(tsc *) Bash(vitest *) Bash(playwright *)
 ---
 
 # React Skill
@@ -21,7 +21,7 @@ Covers React/TypeScript development standards: clean code, component patterns, t
 |------|----------|
 | `clean-code.md` | Naming, hooks, props, ES6+, performance, styling |
 | `patterns.md` | Composition, Custom Hooks, Context Provider |
-| `testing.md` | Jest + React Testing Library, mocking, timeouts |
+| `testing.md` | Vitest + React Testing Library, mocking, timeouts |
 | `static-analysis.md` | ESLint + Prettier + TypeScript config |
 | `parallel.md` | React 18 concurrent, Web Workers, Suspense |
 | `ipc.md` | Fetch/Axios, WebSockets, Context state management |
@@ -40,8 +40,8 @@ Covers React/TypeScript development standards: clean code, component patterns, t
 ## Key Tools
 
 - **Package manager**: pnpm (not npm/yarn)
-- **Linter**: ESLint + Biome
-- **Formatter**: Prettier
+- **Linter**: Biome (preferred) + ESLint (legacy)
+- **Formatter**: Biome (preferred) + Prettier (legacy)
 - **Type checker**: TypeScript (`tsc --noEmit`)
 - **Testing**: Vitest (not Jest)
 - **E2E**: Playwright
