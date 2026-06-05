@@ -7,6 +7,7 @@ Comprehensive development guidelines for AI coding agents. Works with Claude Cod
 ```
 AgentBible/
 ├── AGENTS.md           # Universal agent instructions (always loaded)
+├── TEMPLATE.md         # Templates for new rules, skills, and workflows
 ├── rules/              # Always-on coding standards
 ├── skills/             # Language-specific knowledge (loaded on demand)
 │   ├── python/
@@ -14,7 +15,11 @@ AgentBible/
 │   ├── cpp/
 │   └── react/
 ├── workflows/          # Manual procedures (/command)
-└── scripts/            # Deployment tools
+├── scripts/            # Deployment and validation tools
+├── docs/               # Architecture decisions, specs, due diligence
+│   ├── architecture/   # ADRs (ADR-001 through ADR-005)
+│   └── specs/          # Design specifications
+└── openspec/           # OpenSpec change management
 ```
 
 ### Rules (Always On)
@@ -44,7 +49,7 @@ Language-specific knowledge that loads when you work with matching files:
 | `python/` | `**/*.py` | PEP 8, pytest, Ruff, async, patterns, IPC |
 | `csharp/` | `**/*.cs` | Naming, xUnit, EF Core, ASP.NET, patterns |
 | `cpp/` | `**/*.cpp`, `**/*.hpp` | Naming, Google Test, CMake, RAII, patterns |
-| `react/` | `**/*.jsx`, `**/*.tsx` | Hooks, Jest, React Query, patterns |
+| `react/` | `**/*.jsx`, `**/*.tsx`, `**/*.ts`, `**/*.js` | Hooks, Vitest, React Query, patterns |
 
 ### Workflows (Manual)
 
@@ -69,14 +74,18 @@ Copy `AGENTS.md` to your project root. Works with any agent that reads AGENTS.md
 ### Option 2: Deploy to Specific Tools
 
 ```bash
-# Deploy to GitHub Copilot
+# Deploy to GitHub Copilot (all languages)
 python scripts/deploy_to_copilot.py
 
-# Deploy to Windsurf
-python scripts/deploy_to_windsurf.py
+# Deploy to GitHub Copilot (specific languages)
+python scripts/deploy_to_copilot.py python react
 
-# Deploy to Claude Code
-python scripts/deploy_to_claude.py
+# Deploy to Windsurf (requires language argument)
+python scripts/deploy_to_windsurf.py python react
+
+# Deploy to Claude Code (requires target: user or project)
+python scripts/deploy_to_claude.py user
+python scripts/deploy_to_claude.py project python react
 ```
 
 ### Option 3: Use as Skills (Claude Code)
@@ -114,7 +123,8 @@ cp -r AgentBible/skills/python .claude/skills/python
 
 1. Create `skills/{language}/SKILL.md` with frontmatter
 2. Add topic files: clean-code.md, patterns.md, testing.md, static-analysis.md, parallel.md, ipc.md
-3. Update deployment scripts if needed
+3. Add the language to `lang_config` in all three deploy scripts
+4. Update README and AGENTS.md skill tables
 
 ### New Rule
 

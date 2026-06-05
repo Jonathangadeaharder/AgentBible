@@ -19,7 +19,7 @@ checksum: a57d579b40e0fd4297341afd98ca06140130fee656f57e934c2d8ceaa7cda5d2
 
 **Context:** AgentBible targets multiple AI coding platforms (Claude Code, GitHub Copilot, Windsurf, Cursor). Each platform has different configuration files, symlink conventions, and instruction loading mechanisms.
 
-**Decision:** Provide platform-specific deploy scripts under `scripts/` that copy or symlink content to each platform's expected locations. The AGENTS.md file works universally when placed in the project root. Rules map to platform equivalents: rules/ → .claude/ for Claude Code, copilot-instructions.md for Copilot, .cursor/rules/ for Cursor.
+**Decision:** Provide platform-specific deploy scripts under `scripts/` that copy content to each platform's expected locations. The AGENTS.md file works universally when placed in the project root. Rules map to platform equivalents: rules/ → CLAUDE.md for Claude Code, copilot-instructions.md for Copilot, .cursor/rules/ for Cursor.
 
 **Consequences:**
 - Positive: Single source, multiple deployment targets

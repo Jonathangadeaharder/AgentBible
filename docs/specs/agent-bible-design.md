@@ -1,5 +1,5 @@
 ---
-id: SPEC-AGENT-BIBLE-
+id: SPEC-AGENT-BIBLE
 kind: spec
 title: AgentBible — Universal Agent Development Guidelines
 status: draft
@@ -14,10 +14,6 @@ implements: []
 related: []
 external: []
 project: AgentBible
-checksum: 3542c0f659b48e237cba049807739fcd1dadeca0d22a6cfb0ccafae8c8d803e8
----
-
----
 checksum: 6c7d13f113a031ff284e3480528b82c18578ab752b4fde0449dc3bab5fba0985
 ---
 
@@ -67,7 +63,9 @@ AgentBible/
 └── scripts/            # Platform deployment tools
     ├── deploy_to_claude.py
     ├── deploy_to_copilot.py
-    └── deploy_to_windsurf.py
+    ├── deploy_to_windsurf.py
+    ├── install-commit-hook.ps1
+    └── validate-commits.ps1
 ```
 
 ## Content Tiers
@@ -84,6 +82,6 @@ AgentBible/
 | Platform | AGENTS.md → | rules/ → | skills/ → |
 |----------|-------------|----------|-----------|
 | Claude Code | AGENTS.md | CLAUDE.md | .claude/skills/ |
-| GitHub Copilot | AGENTS.md | copilot-instructions.md | N/A |
-| Windsurf | AGENTS.md | .windsurf/rules/ | memories |
+| GitHub Copilot | AGENTS.md | global.instructions.md | {lang}.instructions.md |
+| Windsurf | AGENTS.md | global_rules.md | {lang}_rules.md |
 | Cursor | AGENTS.md | .cursor/rules/*.md | N/A |

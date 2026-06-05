@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 # Local Commit Message Validation Script
-# Validates commit messages against COMMIT.MD standards
+# Validates commit messages against rules/commit.md standards
 
 param(
     [Parameter(Mandatory=$false)]
@@ -380,7 +380,7 @@ function Show-ValidationResults {
         Write-ColorText "💡 Suggestions:" "Cyan"
         
         if (-not $Validation.FormatValid -or -not $Validation.TypeValid) {
-            Write-Host "  • Review COMMIT.MD for format guidelines"
+            Write-Host "  • Review rules/commit.md for format guidelines"
             Write-Host "  • Use: type(scope): description format"
         }
         
@@ -563,7 +563,7 @@ try {
     
     Write-Header "COMMIT MESSAGE VALIDATOR"
     
-    Write-Host "Analyzing commit messages against COMMIT.MD standards..."
+    Write-Host "Analyzing commit messages against rules/commit.md standards..."
     Write-Host ""
     
     # Get commits

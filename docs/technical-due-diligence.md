@@ -33,7 +33,7 @@ Flat file hierarchy organized into `rules/`, `skills/`, `workflows/`, `scripts/`
 
 ## Tech Stack
 
-Pure markdown. No languages, runtimes, or frameworks. Shell scripts for deploy (bash).
+Pure markdown. No languages, runtimes, or frameworks. Python scripts for deploy (copilot, windsurf, claude). PowerShell scripts for commit validation.
 
 ## Code Quality
 
@@ -53,7 +53,7 @@ No CI/CD. Manual deploy via local shell scripts. No observability, monitoring, o
 
 ## Dependencies & Third-Party Risk
 
-Zero runtime dependencies. Deploy scripts depend on standard Unix utilities (cp, mkdir).
+Zero runtime dependencies. Deploy scripts depend on Python 3 standard library (pathlib, json, os, sys). Commit validation scripts require PowerShell (pwsh).
 
 ## Risks
 

@@ -150,6 +150,10 @@ def create_global_claude_md(target_file):
         "rules/commit.md",
         "rules/architecture.md",
         "rules/ipc.md",
+        "rules/mcp.md",
+        "rules/orchestration.md",
+        "rules/security.md",
+        "rules/memory.md",
         "rules/behaviour.md",
     ]
 

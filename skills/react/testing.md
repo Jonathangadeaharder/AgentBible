@@ -1,25 +1,26 @@
 # React Testing
 
-## Framework: Jest + React Testing Library
+## Framework: Vitest + React Testing Library
 
 ```bash
-npm install --save-dev @testing-library/react @testing-library/jest-dom
+pnpm add -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom
 ```
 
 ## Unit Test
 
-```jsx
-import { render, screen, fireEvent } from '@testing-library/react';
+```tsx
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-jest.mock('./services/api', () => ({ getUser: jest.fn() }));
+vi.mock('./services/api', () => ({ getUser: vi.fn() }));
 
 describe('UserProfile', () => {
-  beforeEach(() => jest.clearAllMocks());
+  beforeEach(() => vi.clearAllMocks());
 
-  test('displays user name when loaded', async () => {
+  it('displays user name when loaded', async () => {
     // Arrange
-    require('./services/api').getUser.mockResolvedValue({ id: 1, name: 'John' });
+    vi.mocked(require('./services/api').getUser).mockResolvedValue({ id: 1, name: 'John' });
 
     // Act
     render(<UserProfile userId={1} />);
@@ -32,18 +33,25 @@ describe('UserProfile', () => {
 
 ## Integration Test
 
-```jsx
-test('navigate to profile and see details', async () => {
-  global.fetch = jest.fn().mockResolvedValue({
-    json: () => Promise.resolve([{ id: 1, name: 'John' }]),
-    ok: true
-  });
+```tsx
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, it, expect, vi } from 'vitest';
+import { BrowserRouter } from 'react-router-dom';
 
-  render(<BrowserRouter><App /></BrowserRouter>);
+describe('App navigation', () => {
+  it('navigate to profile and see details', async () => {
+    global.fetch = vi.fn().mockResolvedValue({
+      json: () => Promise.resolve([{ id: 1, name: 'John' }]),
+      ok: true
+    });
 
-  await userEvent.click(screen.getByRole('link', { name: 'Users' }));
-  expect(await screen.findByText('John')).toBeInTheDocument();
-}, 300000);
+    render(<BrowserRouter><App /></BrowserRouter>);
+
+    await userEvent.click(screen.getByRole('link', { name: 'Users' }));
+    expect(await screen.findByText('John')).toBeInTheDocument();
+  }, 300000);
+});
 ```
 
 ## Best Practices
@@ -63,11 +71,21 @@ test('navigate to profile and see details', async () => {
 | Integration | 5 min (300,000ms) |
 | E2E | 10 min (600,000ms) |
 
-## Jest Config
+## Vitest Config
 
-```js
-// jest.config.js
-module.exports = { testTimeout: 60000 };
+```ts
+// vitest.config.ts
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    testTimeout: 60000,
+    globals: true,
+  },
+});
 ```
 
 ## Test Length

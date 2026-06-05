@@ -35,7 +35,7 @@ Scan the codebase to produce `docs/_drift/observed_state.json` containing:
 
 Parse documentation to produce `docs/_drift/declared_state.json` from:
 
-- ADRs (`docs/adr/`)
+- ADRs (`docs/architecture/`)
 - READMEs and architecture docs
 - Diagram source files (Mermaid, PlantUML, C4)
 - OpenAPI/gRPC spec files
