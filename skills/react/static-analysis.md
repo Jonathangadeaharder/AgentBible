@@ -11,10 +11,10 @@
 
 ```bash
 # Preferred: Biome (lint + format in one tool)
-pnpm dlx @biomejs/biome check --fix $FILE
+pnpm exec biome check --write $FILE
 
 # Before committing
-pnpm dlx @biomejs/biome check src/ && pnpm exec tsc --noEmit
+pnpm exec biome check src/ && pnpm exec tsc --noEmit
 
 # Legacy: ESLint + Prettier (if project uses them)
 npx eslint $FILE --fix && npx prettier --write $FILE && npx tsc --noEmit

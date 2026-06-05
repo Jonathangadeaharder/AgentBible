@@ -12,6 +12,7 @@ pnpm add -D vitest @testing-library/react @testing-library/jest-dom @testing-lib
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { getUser } from './services/api';
 
 vi.mock('./services/api', () => ({ getUser: vi.fn() }));
 
@@ -20,7 +21,7 @@ describe('UserProfile', () => {
 
   it('displays user name when loaded', async () => {
     // Arrange
-    vi.mocked(require('./services/api').getUser).mockResolvedValue({ id: 1, name: 'John' });
+    vi.mocked(getUser).mockResolvedValue({ id: 1, name: 'John' });
 
     // Act
     render(<UserProfile userId={1} />);
@@ -41,10 +42,10 @@ import { BrowserRouter } from 'react-router-dom';
 
 describe('App navigation', () => {
   it('navigate to profile and see details', async () => {
-    global.fetch = vi.fn().mockResolvedValue({
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
       json: () => Promise.resolve([{ id: 1, name: 'John' }]),
       ok: true
-    });
+    }));
 
     render(<BrowserRouter><App /></BrowserRouter>);
 
