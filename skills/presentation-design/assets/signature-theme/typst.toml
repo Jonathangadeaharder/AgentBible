@@ -1,0 +1,7 @@
+[package]
+name = "signature-theme"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["your name"]
+license = "MIT"
+description = "Reusable presentation design signature (Typst side)."

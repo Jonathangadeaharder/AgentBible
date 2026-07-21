@@ -1,0 +1,175 @@
+/* =============================================================================
+   Assertion-Evidence theme for Slidev
+   Loaded via setup/main.ts so it applies to every slide.
+
+   Design intent (see the skill's references/):
+   - Titles are ASSERTIONS: the largest, boldest, left-aligned thing on a body
+     slide. h1 is the assertion headline.
+   - The body is EVIDENCE: a .evidence region that centers one visual.
+   - WCAG-safe tokens: text/background contrast > 7:1; accent used sparingly.
+   - Generous padding leaves >30-40% of the slide as whitespace.
+
+   IMPORTANT — the hierarchy fix:
+   Slidev's base layer sets h1/h2 sizes via `.slidev-layout h1`, which silently
+   overrides a bare `h1 {}` rule. If you style headings with `h1 {}` your titles
+   render at body size and the hierarchy inverts. We therefore scope heading
+   rules to `.slidev-layout h1` AND mark size/weight `!important`. Keep it that
+   way, or the "tiny title" bug comes back. Verify by rendering, not by reading.
+   ============================================================================ */
+
+:root {
+  /* --- Dark theme (default): calm, high-contrast, projector-friendly --- */
+  --bg:        #0f172a;   /* slate 900 */
+  --surface:   #1e293b;   /* card / panel */
+  --border:    #334155;
+  --ink:       #f1f5f9;   /* primary text — ~13:1 on --bg */
+  --ink-dim:   #cbd5e1;   /* secondary text — ~9:1 on --bg (still AA) */
+  --accent:    #38bdf8;   /* sky 400 — rules, key figures, signaling only */
+  --good:      #34d399;
+  --bad:       #f87171;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+}
+
+/* --- Light alternative (matte, lightly tinted — helps dyslexia, cuts glare).
+       To use, move this block below :root or copy the values into :root. ---
+:root {
+  --bg: #faf7f2; --surface: #ffffff; --border: #e5e0d8;
+  --ink: #1a1a1a; --ink-dim: #4b5563; --accent: #0369a1;
+  --good: #047857; --bad: #b91c1c;
+}
+*/
+
+* { box-sizing: border-box; }
+
+html, body, #page, .slidev-layout {
+  background: var(--bg) !important;
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* Generous, consistent padding = built-in whitespace. */
+.slidev-layout {
+  padding: 44px 64px 64px;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* ---- Headings: the hierarchy fix. h1 is the ASSERTION. ---- */
+.slidev-layout h1 {
+  font-size: 2.2rem !important;      /* clearly the largest element */
+  line-height: 1.12 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.55rem !important;
+  color: var(--ink) !important;
+  text-align: left;
+  max-width: 90%;                    /* keep an assertion to ~2 lines */
+}
+/* accent rule under the assertion, a subtle signaling cue */
+.slidev-layout h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 14px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+.slidev-layout h2 {
+  font-size: 1.5rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem !important;
+  color: var(--accent) !important;
+}
+.slidev-layout h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  margin: 0 0 0.35rem !important;
+}
+
+p  { font-size: 1.05rem; line-height: 1.5; color: var(--ink-dim); margin: 0.3em 0; }
+ul, ol { font-size: 1.05rem; line-height: 1.55; color: var(--ink); }
+li { margin: 0.3em 0; }
+strong { color: var(--ink); font-weight: 700; }
+em { color: var(--accent); font-style: normal; font-weight: 600; }
+code { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* ---- Evidence region: the visual body of an AES slide ---- */
+.evidence {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;               /* let large images shrink to fit */
+  margin-top: 8px;
+}
+.evidence img,
+.evidence svg { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+/* ---- Small annotation next to the evidence (max 2 per slide) ---- */
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  max-width: 320px;
+}
+
+/* ---- Eyebrow / kicker ---- */
+.eyebrow {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 0.5em;
+}
+.kicker { color: var(--ink-dim); font-size: 0.95rem; }
+
+/* ---- Cards / panels (mapping slide, comparisons) ---- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card, .panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+/* ---- Big number (a single, sourced statistic) ---- */
+.stat { font-size: 2.4rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 0.85rem; color: var(--ink-dim); margin-top: 6px; }
+
+/* ---- Centered title / closing slide ---- */
+.slidev-layout.center { justify-content: center; align-items: center; text-align: center; }
+.slidev-layout.center h1 { text-align: center; max-width: 100%; font-size: 3.4rem !important; }
+.slidev-layout.center h1::after { margin-left: auto; margin-right: auto; }
+
+/* ---- Footer: section marker + slide number ---- */
+.foot {
+  position: absolute !important;
+  bottom: 20px !important; left: 64px !important; right: 64px !important;
+  display: flex !important; justify-content: space-between;
+  font-size: 0.78rem; color: var(--ink-dim); letter-spacing: 0.03em;
+}
+.foot .brand { color: var(--accent); font-weight: 700; }
+
+/* ---- Source line under a chart/figure ---- */
+.source { font-size: 0.72rem; color: var(--ink-dim); opacity: 0.8; margin-top: 6px; }
+
+/* ---- Code blocks readable on the theme ---- */
+.slidev-code-wrapper, pre.slidev-code {
+  background: var(--surface) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px !important;
+}
+.slidev-code, pre.slidev-code code { background: transparent !important; color: var(--ink) !important; }

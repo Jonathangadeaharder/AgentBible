@@ -53,7 +53,8 @@ AgentBible/
 │   ├── python/         # Triggers on **/*.py
 │   ├── csharp/         # Triggers on **/*.cs
 │   ├── cpp/            # Triggers on **/*.{cpp,hpp,h}
-│   └── react/          # Triggers on **/*.{jsx,tsx,ts,js}
+│   ├── react/          # Triggers on **/*.{jsx,tsx,ts,js}
+│   └── presentation-design/  # Triggers on deck/slides/presentation requests
 ├── workflows/          # Manual procedures (/research, /comment-guard, etc.)
 ├── scripts/            # Deployment and validation tools
 ├── docs/               # Architecture decisions, specs, due diligence
@@ -84,6 +85,7 @@ Language-specific skills load automatically when you work with matching files:
 - `skills/csharp/` — C# standards, xUnit, EF Core, ASP.NET, patterns
 - `skills/cpp/` — C++ standards, Google Test, CMake, patterns
 - `skills/react/` — React standards, Vitest, hooks, patterns
+- `skills/presentation-design/` — Slide decks, Slidev, cognitive design, anti-AI-slop, Typst
 
 ## Workflows (Manual)
 

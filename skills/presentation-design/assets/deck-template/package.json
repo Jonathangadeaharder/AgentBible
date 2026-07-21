@@ -1,0 +1,16 @@
+{
+  "name": "ae-deck",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.16.0",
+    "playwright-chromium": "^1.61.1",
+    "slidev-addon-typst": "^1.0.2",
+    "zdog": "^1.1.3"
+  }
+}
